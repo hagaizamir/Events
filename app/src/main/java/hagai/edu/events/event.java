@@ -14,8 +14,7 @@ public class event extends AppCompatActivity {
     //in activities / controllers the properties are the controls
 //    private EditText etMessage;
 //    private Button btnSend;
-    private Button btnPlus;
-    private Button btnMinus;
+
     private TextView tvResults;
     private int counter = 0;
 

@@ -17,6 +17,7 @@ public class event extends AppCompatActivity {
     private Button btnPlus;
     private Button btnMinus;
     private TextView tvResults;
+    private int counter = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,9 +26,9 @@ public class event extends AppCompatActivity {
 
 //        btnSend = (Button) findViewById(R.id.btnSend);
 //        etMessage = (EditText) findViewById(R.id.etMessage);
-        (btnMinus) = (Button) findViewById(R.id.btnMinus);
-        (btnPlus) = (Button) findViewById(R.id.btnPlus);
+
         (tvResults) = (TextView) findViewById(R.id.tvResults);
+        setTvResults();
 
 
     }
@@ -38,10 +39,17 @@ public class event extends AppCompatActivity {
     }
 
     public void btnMinus(View view) {
-        String text = tvResults.getText().toString();
+//        String text = tvResults.getText().toString();
+        counter--;
+        setTvResults();
     }
 
     public void btnPlus(View view) {
-        String text = tvResults.getText().toString();
+       counter++;
+        setTvResults();
+    }
+    private void setTvResults (){
+        tvResults.setText(String.valueOf(counter));
+
     }
 }

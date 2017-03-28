@@ -33,9 +33,7 @@ public class event extends AppCompatActivity {
     }
 
 
-
-
-    private void setTvResults (){
+    private void setTvResults() {
 
     }
 
@@ -44,14 +42,13 @@ public class event extends AppCompatActivity {
             int checkedID = rgTemperature.getCheckedRadioButtonId();
             double results = 0;
             double temp = Double.valueOf(etTemperature.getText().toString());
-            if (checkedID==R.id.radioCelsius){
+            if (checkedID == R.id.radioCelsius) {
                 //T(°F) = T(°C) × 9/5 + 32
-                results = (temp-32)*5.0/9;
+                results = (temp - 32) * 5.0 / 9;
 
-            }
-            else {
-               // T(°C) = (T(°F) - 32) / (9/5)
-                results = temp*9.0/5 +32;
+            } else {
+                // T(°C) = (T(°F) - 32) / (9/5)
+                results = temp * 9.0 / 5 + 32;
             }
             tvResults.setText(String.valueOf(results));
         } catch (NumberFormatException e) {
@@ -60,5 +57,5 @@ public class event extends AppCompatActivity {
     }
 
 
-    }
+}
 

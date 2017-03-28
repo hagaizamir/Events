@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -14,41 +15,50 @@ public class event extends AppCompatActivity {
     //in activities / controllers the properties are the controls
 //    private EditText etMessage;
 //    private Button btnSend;
-
+    private RadioGroup rgTemperature;
     private TextView tvResults;
-    private int counter = 0;
+    private EditText etTemperature;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.exc1);
+        setContentView(R.layout.temp_converter);
 
-//        btnSend = (Button) findViewById(R.id.btnSend);
-//        etMessage = (EditText) findViewById(R.id.etMessage);
 
+        (rgTemperature) = (RadioGroup) findViewById(R.id.rgTemperature);
         (tvResults) = (TextView) findViewById(R.id.tvResults);
-        setTvResults();
-
+        (etTemperature) = (EditText) findViewById(R.id.etTemperature);
 
     }
 
-    public void btnClicked(View view) {
-//        String text = etMessage.getText().toString();
-//        Toast.makeText(this, "Hello " +text, Toast.LENGTH_SHORT).show();
-    }
 
-    public void btnMinus(View view) {
-//        String text = tvResults.getText().toString();
-        counter--;
-        setTvResults();
-    }
 
-    public void btnPlus(View view) {
-       counter++;
-        setTvResults();
-    }
+
     private void setTvResults (){
-        tvResults.setText(String.valueOf(counter));
 
     }
-}
+
+    public void btnCalc(View view) {
+        try {
+            int checkedID = rgTemperature.getCheckedRadioButtonId();
+            double results = 0;
+            double temp = Double.valueOf(etTemperature.getText().toString());
+            if (checkedID==R.id.radioCelsius){
+                //T(°F) = T(°C) × 9/5 + 32
+                results = (temp-32)*5.0/9;
+
+            }
+            else {
+               // T(°C) = (T(°F) - 32) / (9/5)
+                results = temp*9.0/5 +32;
+            }
+            tvResults.setText(String.valueOf(results));
+        } catch (NumberFormatException e) {
+
+        }
+    }
+
+
+    }
+

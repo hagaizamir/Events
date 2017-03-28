@@ -7,26 +7,27 @@
     tools:context="hagai.edu.events.event">
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/etMessage"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
         android:ems="10"
         android:hint="Message"
         android:inputType="textPersonName"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintRight_toLeftOf="@+id/button2"
-        android:layout_marginRight="8dp" />
+        app:layout_constraintRight_toLeftOf="@+id/btnSend"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btnSend"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginRight="16dp"
         android:layout_marginTop="0dp"
         android:text="send"
+        android:onClick="btnClicked"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
